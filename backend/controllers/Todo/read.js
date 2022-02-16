@@ -1,4 +1,4 @@
-const { getAlldata } = require('../services/index');
+const { getAlldata } = require('../../services/index');
 
 module.exports = async (_req, res, next) => {
   try {

@@ -1,17 +1,12 @@
 const express = require('express');
 const router = express.Router();
-const todo = require('../controllers/index');
+const todo = require('../controllers/Todo/index');
 
-router.get('/todo', todo.getAll);
-
+//todo
+router.get('/todo', todo.read);
 router.post('/todo', todo.create);
+router.delete('/todo/:id', todo.deleted);
 
-router.patch('/update', (req, res) => {
-  res.send('');
-});
-
-router.delete('/delete', (req, res) => {
-  res.send('');
-});
+//priority
 
 module.exports = router;
