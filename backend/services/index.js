@@ -1,5 +1,5 @@
 const Joi = require('joi');
-const { getAll, create, deleteById } = require('../models/index');
+const { getAll, create, deleteById, updateById } = require('../models/index');
 
 // codigo inspirado na aula https://github.dev/tryber/sd-013-c-live-lectures/tree/review/27
 
@@ -35,4 +35,16 @@ const deleteData = async (id) => {
   return deletedById;
 };
 
-module.exports = { getAlldata, createData, deleteData };
+const updateData = async (id, title, notes, priority) => {
+  if (!id || !title || !notes)
+    throw {
+      status: 400,
+      message: error.message,
+    };
+
+  const updatedTaskId = await updateById(id, title, notes, priority);
+
+  return updatedTaskId;
+};
+
+module.exports = { getAlldata, createData, deleteData, updateData };

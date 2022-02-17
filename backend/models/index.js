@@ -21,13 +21,22 @@ const create = async (title, notes, priority) => {
   return insertedId;
 };
 
-const deleteById = async (id) => {
+const updateById = async (id, title, notes, priority) => {
   const connection = await connect();
-  const deleted = await connection
-    .collection('to-do-collection')
-    .deleteOne({ _id: ObjectId(id) });
 
-  return deleted;
+  await connection
+    .collection('to-do-collection')
+    .updateOne({ _id: ObjectId(id) }, { $set: { title, notes, priority } });
+
+  return id;
 };
 
-module.exports = { getAll, create, deleteById };
+const deleteById = async (id) => {
+  const connection = await connect();
+
+  await connection
+    .collection('to-do-collection')
+    .deleteOne({ _id: ObjectId(id) });
+};
+
+module.exports = { getAll, create, deleteById, updateById };

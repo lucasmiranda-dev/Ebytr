@@ -3,10 +3,8 @@ const router = express.Router();
 const todo = require('../controllers/Todo/index');
 
 //todo
-router.get('/todo', todo.read);
-router.post('/todo', todo.create);
-router.delete('/todo/:id', todo.deleted);
-
-//priority
-
+router.get('/', todo.read);
+router.post('/', todo.create);
+router.delete('/:id', todo.deleted);
+router.put('/:id', todo.update);
 module.exports = router;
