@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import fetchTodo from '../src/utils/fetchTodo';
 import './App.css';
 import Notes from './components/notes';
@@ -6,6 +6,15 @@ import Notes from './components/notes';
 function App() {
   const [title, setTitles] = useState('');
   const [notes, setNotes] = useState('');
+  const [allNotes, setAllNotes] = useState([]);
+
+  useEffect(() => {
+    async function getAllNotes() {
+      const response = fetchTodo.get('/');
+      setAllNotes(response.data);
+    }
+    getAllNotes();
+  }, []);
 
   async function handleSubmit(e) {
     e.preventDefault();

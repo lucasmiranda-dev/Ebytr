@@ -7,10 +7,10 @@ function Notes() {
         <ul>
           <li className='notepad-infos'>
             <div>
-              <strong>Fazer Lista</strong>
+              <strong>Meu titulo</strong>
               <div>x</div>
             </div>
-            <textarea defaultValue='Lorem ipsum dolor sit amet, consectetur'></textarea>
+            <textarea defaultValue='Lorem lipsum is simply'></textarea>
             <span>!</span>
           </li>
         </ul>
