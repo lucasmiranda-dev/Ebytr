@@ -1,7 +1,9 @@
-<h1>Desafio Ebytr<h1/>
-  <p>Api desenvolvida em NodeJS e React para o desafio técnico da empresa Ebytr</p>
+#Desafio Ebytr
+  Api desenvolvida em NodeJS e React para o desafio técnico da empresa Ebytr
   
-  <h2>Instruções para reproduzir o projeto localmente</h2>
-  <ul>
-    <li>git clone</li>
-  </ul>
+  ##Instruções para reproduzir o projeto localmente
+  
+    1. Clone o Repositório 
+    * `git clone https://github.com/lucasmiranda-dev/Ebytr.git`
+    2. Entre na pasta do repositório de backend * `cd backend`
+  
