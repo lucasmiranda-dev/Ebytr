@@ -2,6 +2,8 @@ const mongodb = require('mongodb').MongoClient;
 const dotenv = require('dotenv');
 dotenv.config();
 
+//código da documentação do mongodb
+
 const MONGO_DB_URL = process.env.MONGO_DB_URL;
 const DB_NAME = 'to-do-db';
 

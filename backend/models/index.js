@@ -1,6 +1,8 @@
 const { ObjectId } = require('mongodb');
 const connect = require('./connections');
 
+//// codigo inspirado na aula https://github.dev/tryber/sd-013-c-live-lectures/tree/review/27
+
 const getAll = async () => {
   const connection = await connect();
   const findAll = await connection
