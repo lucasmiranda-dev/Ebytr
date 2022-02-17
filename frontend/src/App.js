@@ -1,24 +1,49 @@
-import logo from './logo.svg';
+import React, { useState } from 'react';
+import fetchTodo from '../src/utils/fetchTodo';
 import './App.css';
+import Notes from './components/notes';
 
 function App() {
+  const [title, setTitles] = useState('');
+  const [notes, setNotes] = useState('');
+
+  async function handleSubmit(e) {
+    e.preventDefault();
+
+    const response = await fetchTodo.post('/', {
+      title,
+      notes,
+      priority: false,
+    });
+    setTitles('');
+    setNotes('');
+  }
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <header>To-do-Ebytr</header>
+      <form onSubmit={handleSubmit}>
+        <div className='input-block'>
+          <label htmlFor='title'>Titulo</label>
+          <input
+            required
+            value={title}
+            onChange={(e) => setTitles(e.target.value)}
+          />
+        </div>
+        <div className='input-block'>
+          <label htmlFor='notes'>Anotações</label>
+          <textarea
+            required
+            value={notes}
+            onChange={(e) => setNotes(e.target.value)}
+          ></textarea>
+        </div>
+        <button type='submit'>Salvar</button>
+      </form>
+      <ul>
+        <Notes />
+      </ul>
+    </>
   );
 }
 
